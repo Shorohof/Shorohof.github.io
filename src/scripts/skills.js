@@ -14,8 +14,7 @@ const skillsItem = {
 
       circle.style.strokeDashoffset = percent;
     },
-  },
-  
+  },  
   mounted() {
     this.drawPercentageCircle();
   }, 

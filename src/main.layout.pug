@@ -1,4 +1,5 @@
 include ./mixins.pug
+include ./templates/entry.pug
 
 <!DOCTYPE html>
 html(lang="en")
@@ -7,9 +8,9 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Portfolio | main page
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   body
     .wrapper
       .maincontent
         block content
 
-      include ./templates/entry.pug
