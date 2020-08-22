@@ -2,7 +2,7 @@ import Vue from "vue";
 
 const skillsItem = {
   props: ["skill"],
-  template: "skills-item",
+  template: "#skills-item",
   methods: {
     drawPercentageCircle() {
       const circle = this.$refs["colored-circle"];
