@@ -73,13 +73,14 @@ block content
               .values__title-text Чем я могу быть полезен вам
               .values__content
                 p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-          .values__widget                       
-            #skills-component             
+          .values__widget   
+            .values__widget-container
+              #skills-component             
     section.works
       .container.works__container
         .section-title.works__section-title Мои работы
         .works__content
-          #works-slider-component
+          #preview-component
 
   .triangles.triangles_bottom
     svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape.triangles__shape_left

@@ -1,59 +1,41 @@
-script(type="text/x-template")#slider-container
-  .works-slider(v-if="works.length")
-    display(
-      :works="works",
-      :currentWork="currentWork",
-      :currentIndex="currentIndex"
-      @slide="handleSlide"
-      @slideDirectly="slideDirectly"
-    )
-    info(
-      :currentWork="currentWork"
-    )
+script(type="text/x-template")#preview-container
+  .works-preview
+    display
+    info               
 
-script(type="text/x-template")#slider-display
-  .works-slider__pics(:data-slide="currentIndex + 1")
-    .works-slider__pics-content
-      transition-group(name="fade" tag="div").works-slider__fullpic-container
-        img(:src="`http://localhost:8000/${currentWork.photo}`" :key="currentWork.id").works-slider__fullpic
-      btns(
-        @slide="direction => $emit('slide', direction)"
-      )
+script(type="text/template")#preview-display
+  .works-preview__pictures(data-slide="1")              
+    +image('content/slider-1.jpg', 'works-preview__img')                
+    .works-preview__thumbs
+      thumbs
+    .works-preview__btns
+      btns   
 
-      thumbs(
-        :works="reversedWorks",
-        :currentWork="currentWork"
-        @slideDirectly="$emit('slideDirectly', $event)"
-      )
-            
-script(type="text/x-template")#slider-thumbs
-  ul.works-slider__thumbs
-    li.works-slider__thumb-item(
-      v-for="(work, index) in works"
-      :class="{active: currentWork.id === work.id}"
-    )
-      a.works-slider__thumb-link(
-        @click="$emit('slideDirectly', work)"
-      )
-        img(:src="`http://localhost:8000/${work.photo}`", alt="").works-slider__thumb
+script(type="text/template")#preview-thumbs
+  ul.thumbs
+    - for (var i = 3; i > 0; i--)
+      li.thumbs__item(class=`${i === 1 ? 'active' : ''}`)
+        a(href="#").thumbs__link
+          +image(`content/slider-${i}.jpg`, "thumbs_pic")
 
-script(type="text/x-template")#slider-btns
-  .works-slider__buttons
-    a(href="#" @click.prevent="$emit('slide', 'next')").works-slider__btn.works-slider__btn_next
-    a(href="#" @click.prevent="$emit('slide', 'prev')").works-slider__btn.works-slider__btn_prev
+script(type="text/template")#preview-btns
+  .square-btns
+    button(type="button").square-btns__item.square-btns__item--next
+    button(type="button").square-btns__item.square-btns__item--prev
 
-script(type="text/x-template")#slider-info
-  .works-slider__data
-    tags(
-      :tags="tagsArray"
-    )
-    .works-slider__title {{currentWork.title}}
-    .works-slider__desc
-      p {{currentWork.description}}
-    .works-slider__link 
-      a(href="").iconed-link Посмотреть сайт
+script(type="text/template")#preview-info
+  .works-preview__info
+    .works-preview__tags  
+      tags    
+    .works-preview__title Сайт школы образования
+    .works-preview__desc
+      p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+    .works-preview__link 
+    a(href="").iconed-link Посмотреть сайт
 
-script(type="text/x-template")#slider-tags
-  ul.works-slider__tags(v-if="tags.length")
-    li.works-slider__tag-item(v-for="tag in tags")
-      .tag {{tag}}
+script(type="text/template")#preview-tags
+- var tags = ['HTML', 'CSS', 'JavaScript'];
+ul.tags
+  each item in tags
+    li.tags__item 
+      .tag #{item}
