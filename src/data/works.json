@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "1 Сайт",
+        "skills": "1 HTML, CSS, JavaScript",
+        "photo": "slider-1.jpg",
+        "link": "//google.com",
+        "desc": "loren ipsum"
+    },
+    {
+        "id": 2,
+        "title": "2 Сайт",
+        "skills": "1 HTML, CSS, JavaScript",
+        "photo": "slider-2.jpg",
+        "link": "//google.com",
+        "desc": "loren ipsum"
+    },
+    {
+        "id": 3,
+        "title": "3 Сайт",
+        "skills": "1 HTML, CSS, JavaScript",
+        "photo": "slider-3.jpg",
+        "link": "//google.com",
+        "desc": "loren ipsum"
+    }
+]
