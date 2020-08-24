@@ -27,7 +27,7 @@ script(type="text/x-template")#preview-btns
     button(type="btns").works-preview__btn.works-preview__btn--prev
 
 script(type="text/x-template")#preview-info
-  .works-preview__info
+  .works-preview__data
     .works-preview__tags  
       tags    
     .works-preview__title Сайт школы образования
@@ -38,7 +38,7 @@ script(type="text/x-template")#preview-info
 
 script(type="text/x-template")#preview-tags
   - var tags = ['HTML', 'CSS', 'JavaScript'];
-  ul.tags
+  ul.works-preview__tags
     each item in tags
-      li.tags__item 
+      li.works-preview__tag-item 
         .tag #{item}
